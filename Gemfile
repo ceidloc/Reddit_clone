@@ -13,7 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+# gem for creating simpler forms // simplifying form for
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -28,6 +29,10 @@ gem 'devise', '~> 3.5', '>= 3.5.6'
 
 # adding gem for voting 
 gem 'acts_as_votable', '~> 0.10.0'
+# sass
+gem 'sass-rails', '~> 5.0'
+ # bootstrap-saa
+ gem 'bootstrap-sass', '~> 3.3.6' 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
