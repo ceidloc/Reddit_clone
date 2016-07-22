@@ -19,22 +19,8 @@
         <td><%= article.body %></td>
         
         <td><%= link_to 'Show', article %></td>
-        <% if article.user=current_user %>
-        <div class ="btn">
-        
-          <%= link_to like_article_path(article), method: "put", class: "btn button" do %>
-        
-            Upvote<%=article[:id] %>
-             <%= article.get_upvotes.size %> 
-            <% end %>
-          
-         <%= link_to dislike_article_path(article), method: "put", class: "btn button" do %>
-        
-            Downvote
-            <%= article.get_downvotes.size %> 
-            <% end %>
-           
-            </div> 
+        <% if article.user==current_user %>
+       
           <td><%= link_to 'Edit', edit_article_path(article) %></td>
           <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>

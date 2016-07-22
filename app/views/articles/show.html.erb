@@ -13,12 +13,31 @@
   <strong>Body:</strong>
   <%= @article.body %>
 </p>
-
-
-
+		<%if current_user %>
+		 <div class ="btn">
+	        
+	          <%= link_to like_article_path(@article), method: "put", class: "btn button" do %>
+	        
+	            Upvote
+	             <%= @article.get_upvotes.size %> 
+	            <% end %>
+	          
+	         <%= link_to dislike_article_path(@article), method: "put", class: "btn button" do %>
+	        
+	            Downvote
+	            <%= @article.get_downvotes.size %> 
+	            <% end %>
+	           
+	            </div> 
+	         <% else %>
+	            Upvotes  <%= @article.get_upvotes.size %> 
+	             Downvotes  <%= @article.get_downvotes.size %> 
+	         <% end %>   
+	            
+<% if @article.user=current_user %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
- 
+ <% end %>
  <p id ="no_of_comments">
  	<%= @article.comments.count %> Comments
  </p>
@@ -32,9 +51,28 @@
 	<strong>Comment</strong>
 	<br>
 	<%= comment.body %>
+	<% if current_user %>
+			<div class ="btn">
+		        
+		           <%= link_to like_comment_path(comment), method: "put", class: "btn button" do %>
+		        
+		            Upvote
+		             <%= comment.get_upvotes.size %> 
+		            <% end %>
+		          
+		       
+		           <%= link_to dislike_comment_path(comment), method: "put", class: "btn button" do %>
+		        	 Downvote
+		             <%= comment.get_downvotes.size %> 
+		            <% end %>
+		          
+		    </div> 
+	
+    <% end %>
+
 </p>
 <% end %>
-
+<% if current_user %>
 <p id="Comments">
 	<%=	 form_for([@article ,@article.comments.build]) do |f|%>
 		<p>
@@ -45,3 +83,4 @@
 		</p>
 		<% end %>
 </p>
+<% end %>				

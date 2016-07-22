@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users do
+    member do
+      get "sign_out", to: "users#delete"
+    end
+  end
   resources :articles do
     member do
         get "like", to: "articles#upvote"
         get "dislike", to: "articles#downvote"
     end
-    resources :comments
+    resources :comments 
+  end
+   resources :comments do 
+     member do
+        get "like", to: "comments#upvote"
+        get "dislike", to: "comments#downvote"
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
