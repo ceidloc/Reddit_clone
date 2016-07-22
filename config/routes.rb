@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users do
     member do
       get "sign_out", to: "users#destroy"
+      get "sign_up", to: "users#new"
     end
   end
   resources :articles do

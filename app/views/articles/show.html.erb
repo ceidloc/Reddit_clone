@@ -34,10 +34,10 @@
 	             Downvotes  <%= @article.get_downvotes.size %> 
 	         <% end %>   
 	            
-<% if @article.user=current_user %>
+<% if @article.user==current_user %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
  <% end %>
+ <%= link_to 'Back', articles_path %>
  <p id ="no_of_comments">
  	<%= @article.comments.count %> Comments
  </p>
@@ -47,7 +47,7 @@
 	<strong>By:</strong>
 	<%= comment.user[:name] %>
 	<br>
-	<%= time_ago_in_words(comment.created_at) %> ago
+	<%= time_ago_in_words(comment.created_at) %> ago<br>
 	<strong>Comment</strong>
 	<br>
 	<%= comment.body %>
