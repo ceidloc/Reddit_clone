@@ -15,7 +15,7 @@
       <tr>
           <td><%= link_to 'Add New Article', new_article_path %></td>
           <td><%= link_to 'Edit Account', edit_user_registration_path %></td>
-          <td><%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Log Out', destroy_user_session_path, method: :get, data: { confirm: 'Are you sure?' } %></td>
         
       </tr>
       <% else %>
